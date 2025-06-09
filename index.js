@@ -1,10 +1,13 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const port = 3000
 const bodyParser = require("body-parser");
 
 const memos = [];
 
+app.use(cors());    // CORS 허용
+app.use(express.json());
 app.use(bodyParser.json());
 
 app.get('/api/memos', (req, res) => {   // 내용 출력
